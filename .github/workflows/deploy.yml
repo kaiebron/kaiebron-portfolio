@@ -40,8 +40,8 @@ jobs:
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: arn:aws:iam::654822778682:role/github-portfolio-deploy
+          aws-region: us-east-2
 
       - uses: aws-actions/setup-sam@v2
 
