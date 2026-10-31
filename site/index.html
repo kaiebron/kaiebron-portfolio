@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kai Ebron | Cybersecurity &amp; Cloud</title>
+  <meta name="description" content="Kai Ebron is a cybersecurity student at FIU building on AWS. Portfolio, projects, and a live weather feed running on Lambda and EventBridge.">
+  <meta name="theme-color" content="#0e1726">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Kai Ebron, home">kai<span>.</span>ebron</a>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-solid btn-sm" href="resume.pdf">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="status"><span class="dot" aria-hidden="true"></span>Open to cloud and security internships</p>
+        <h1 aria-label="Kai Ebron"><span class="typer">Kai Ebron</span></h1>
+        <p class="role">Cybersecurity student at FIU, building on AWS.</p>
+        <p class="lede">I study cyber defense, hold CompTIA A+, and run my own cloud projects end to end, from private buckets to CI/CD pipelines. This site is one of them.</p>
+        <div class="cta">
+          <a class="btn btn-solid" href="#projects">View projects</a>
+          <a class="btn btn-ghost" href="resume.pdf">Download resume</a>
+        </div>
+      </div>
+      <figure class="portrait" aria-label="Portrait placeholder">
+        <!-- Replace this block with: <img src="portrait.jpg" alt="Kai Ebron"> -->
+        <svg viewBox="0 0 120 150" role="img" aria-label="Portrait placeholder">
+          <circle cx="60" cy="56" r="26"/><path d="M14 150c0-34 20-52 46-52s46 18 46 52z"/>
+        </svg>
+      </figure>
+    </section>
+
+    <section class="band" id="live" aria-labelledby="live-h">
+      <div class="band-head">
+        <h2 id="live-h">Live from the backend</h2>
+        <p>An EventBridge schedule triggers a Lambda every 30 minutes. It calls a weather API and publishes the result, and your browser reads it below.</p>
+      </div>
+      <div class="weather" id="weather" aria-live="polite">
+        <p class="w-empty">Loading the latest forecast…</p>
+      </div>
+      <ol class="flow" aria-label="Data flow">
+        <li>EventBridge</li><li>Lambda</li><li>Weather API</li><li>S3</li><li>CloudFront</li><li>This page</li>
+      </ol>
+    </section>
+
+    <section class="section" id="about">
+      <h2>About</h2>
+      <div class="cols">
+        <p>I'm studying cybersecurity with a cyber defense concentration at Florida International University, and I'm an IC-CAE Intelligence Fellow funded through ODNI.</p>
+        <p>I like understanding how systems are built before I try to defend them, so I learn by building: a UniFi home network, a homebrew router, and a home lab I'm assembling piece by piece. I'm aiming for cloud engineering, then security leadership.</p>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <h2>Skills</h2>
+      <ul class="chips">
+        <li>AWS (S3, CloudFront, ACM, Lambda, EventBridge)</li>
+        <li>Cyber defense</li>
+        <li>Networking</li>
+        <li>Linux</li>
+        <li>CI/CD with GitHub Actions</li>
+        <li>Infrastructure as code (AWS SAM)</li>
+        <li>CompTIA A+</li>
+        <li>Python</li>
+      </ul>
+    </section>
+
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>This portfolio</h3>
+          <p>Static site on a private S3 bucket behind CloudFront with origin access control, an ACM certificate, and Cloudflare DNS. Deployed automatically on every push.</p>
+          <p class="tags">S3, CloudFront, ACM, GitHub Actions</p>
+        </article>
+        <article class="card">
+          <h3>Serverless weather feed</h3>
+          <p>A scheduled Lambda fetches a forecast, writes it to S3, and the page above renders it. Defined with AWS SAM and deployed through OIDC with no stored keys.</p>
+          <p class="tags">Lambda, EventBridge, SAM, Python</p>
+        </article>
+        <article class="card">
+          <h3>Home network and lab</h3>
+          <p>Replacing a consumer router setup with UniFi gear and growing a mini home lab for hands-on networking and security practice.</p>
+          <p class="tags">UniFi, networking, home lab</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <h2>Experience</h2>
+      <ul class="rows">
+        <li><strong>IC-CAE Intelligence Fellow</strong><span>Funded through ODNI</span></li>
+        <li><strong>VA work-study</strong><span>Researching veteran scholarships and resources</span></li>
+        <li><strong>AWS Student Builder Group</strong><span>Member, FIU</span></li>
+      </ul>
+    </section>
+
+    <section class="section contact" id="contact">
+      <h2>Contact</h2>
+      <p>Want to talk about cloud, security, or an internship?</p>
+      <p><a class="btn btn-solid" href="mailto:YOUR_EMAIL@example.com">Email me</a></p>
+    </section>
+  </main>
+
+  <footer class="foot">© <span id="yr">2026</span> Kai Ebron. Hosted on AWS.</footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

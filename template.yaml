@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Scheduled weather publisher for the portfolio (EventBridge -> Lambda -> S3).
+
+Parameters:
+  SiteBucketName:
+    Type: String
+    Description: Name of the existing private S3 bucket that CloudFront serves.
+  Latitude:
+    Type: String
+    Default: "25.7617"
+  Longitude:
+    Type: String
+    Default: "-80.1918"
+  LocationLabel:
+    Type: String
+    Default: "Miami, FL"
+  ScheduleExpression:
+    Type: String
+    Default: "rate(30 minutes)"
+
+Resources:
+  WeatherFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-weather"
+      CodeUri: backend/
+      Handler: app.handler
+      Runtime: python3.12
+      Architectures: [arm64]
+      Timeout: 20
+      MemorySize: 128
+      Environment:
+        Variables:
+          SITE_BUCKET: !Ref SiteBucketName
+          LATITUDE: !Ref Latitude
+          LONGITUDE: !Ref Longitude
+          LOCATION_LABEL: !Ref LocationLabel
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: s3:PutObject
+              Resource: !Sub "arn:aws:s3:::${SiteBucketName}/data/*"
+      Events:
+        Every30Min:
+          Type: Schedule
+          Properties:
+            Schedule: !Ref ScheduleExpression
+            Description: Refresh the portfolio weather feed
+
+  WeatherLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AWS::StackName}-weather"
+      RetentionInDays: 14
+
+Outputs:
+  FunctionName:
+    Value: !Ref WeatherFunction
