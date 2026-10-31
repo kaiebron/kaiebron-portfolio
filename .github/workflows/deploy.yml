@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write   # OIDC: GitHub proves its identity to AWS, no stored keys
+  id-token: write
   contents: read
 
 concurrency:
@@ -14,7 +14,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  AWS_REGION: ${{ vars.AWS_REGION }}
   STACK_NAME: portfolio-weather
 
 jobs:
@@ -33,20 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-              - name: Debug OIDC claims
+
+      - name: Debug OIDC claims
         run: |
-          T=$(curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | python3 -c "import sys,json;print(json.load(sys.stdin)['value'])")
-          python3 - "$T" <<'PY'
-          import sys, base64, json
-          p = sys.argv[1].split('.')[1]
-          p += '=' * (-len(p) % 4)
-          c = json.loads(base64.urlsafe_b64decode(p))
-          print({k: c.get(k) for k in ('iss','aud','sub','repository','repository_owner','ref')})
-          PY
-          
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+          curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | python3 -c "import sys,json,base64;t=json.load(sys.stdin)['value'].split('.')[1];t+='='*(-len(t)%4);c=json.loads(base64.urlsafe_b64decode(t));print({k:c.get(k) for k in ('iss','aud','sub','repository','repository_owner','ref')})"
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -74,7 +63,6 @@ jobs:
           cat /tmp/out.json
 
       - name: Sync site to S3
-        # data/* is written by the Lambda, so keep sync from uploading or deleting it.
         run: aws s3 sync site "s3://${{ vars.S3_BUCKET }}" --delete --exclude "data/*"
 
       - name: Invalidate CloudFront
