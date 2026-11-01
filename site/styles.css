@@ -108,3 +108,15 @@ h1{margin:22px 0 14px;font-family:var(--mono);font-weight:800;font-size:clamp(2.
   .typer{animation:none;width:auto;border-right-color:var(--accent)}
   .btn{transition:none}
 }
+/* Resume update: add to the END of styles.css */
+.sub{font-size:1.05rem;color:var(--muted);font-weight:600;margin:22px 0 12px}
+.sub:first-of-type{margin-top:0}
+.chips-gap{margin-top:18px}
+.card ul{padding-left:1.1rem;display:grid;gap:8px;color:var(--muted);font-size:.98rem}
+.jobs{display:grid;gap:18px}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.job-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 20px}
+.job-head h3{font-size:1.2rem;letter-spacing:-.01em}
+.job .when{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.job .org{margin-top:2px;color:var(--muted)}
+.job ul{margin-top:14px;padding-left:1.1rem;display:grid;gap:8px;color:var(--muted);font-size:.98rem;max-width:80ch}

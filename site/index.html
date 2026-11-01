@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kai Ebron | Cybersecurity &amp; Cloud</title>
-  <meta name="description" content="Kai Ebron is a cybersecurity student at FIU building on AWS. Portfolio, projects, and a live weather feed running on Lambda and EventBridge.">
+  <meta name="description" content="Kai Ebron is a cybersecurity student at FIU and an ODNI-funded IC-CAE Intelligence Fellow, with hands-on cloud and networking projects on AWS.">
   <meta name="theme-color" content="#0e1726">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,7 @@
     <a class="brand" href="#top" aria-label="Kai Ebron, home">kai<span>.</span>ebron</a>
     <nav aria-label="Primary">
       <a href="#about">About</a>
+      <a href="#education">Education</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
@@ -29,10 +30,10 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="hero-copy">
-        <p class="status"><span class="dot" aria-hidden="true"></span>Open to cloud and security internships</p>
+        <p class="status"><span class="dot" aria-hidden="true"></span>CompTIA A+, Network+, and Security+ certified</p>
         <h1 aria-label="Kai Ebron"><span class="typer">Kai Ebron</span></h1>
         <p class="role">Cybersecurity student at FIU, building on AWS.</p>
-        <p class="lede">I study cyber defense, hold CompTIA A+, and run my own cloud projects end to end, from private buckets to CI/CD pipelines. This site is one of them.</p>
+        <p class="lede">ODNI-funded IC-CAE Intelligence Fellow with hands-on experience in cyber threat intelligence research, networking, and cloud computing. This site is one of my projects.</p>
         <div class="cta">
           <a class="btn btn-solid" href="#projects">View projects</a>
           <a class="btn btn-ghost" href="resume.pdf">Download resume</a>
@@ -59,22 +60,45 @@
     <section class="section" id="about">
       <h2>About</h2>
       <div class="cols">
-        <p>I'm studying cybersecurity with a cyber defense concentration at Florida International University, and I'm an IC-CAE Intelligence Fellow funded through ODNI.</p>
-        <p>I like understanding how systems are built before I try to defend them, so I learn by building: a UniFi home network, a homebrew router, and a home lab I'm assembling piece by piece. I'm aiming for cloud engineering, then security leadership.</p>
+        <p>I'm a Cybersecurity B.S. candidate at Florida International University and an ODNI-funded IC-CAE Intelligence Fellow. My work spans cyber threat intelligence research, networking, and cloud computing.</p>
+        <p>I'm an active member of the AWS Student Builder Group. I built this AWS-hosted portfolio and a Raspberry Pi travel router to apply cloud and networking concepts hands-on. I'm a beginner-level Python programmer with a background in high-pressure customer service and emergency response, and I resolve inquiries efficiently, organize complex information, and deliver results in fast-paced environments.</p>
       </div>
+    </section>
+
+    <section class="section" id="education">
+      <h2>Education and certifications</h2>
+      <ul class="rows">
+        <li><strong>B.S. in Cybersecurity</strong><span>Florida International University, Miami, FL. Expected June 2028</span></li>
+      </ul>
+      <ul class="chips chips-gap">
+        <li>CompTIA A+ (2026)</li>
+        <li>CompTIA Network+ (2026)</li>
+        <li>CompTIA Security+ (2026)</li>
+      </ul>
     </section>
 
     <section class="section" id="skills">
       <h2>Skills</h2>
+      <h3 class="sub">Technical</h3>
       <ul class="chips">
-        <li>AWS (S3, CloudFront, ACM, Lambda, EventBridge)</li>
-        <li>Cyber defense</li>
-        <li>Networking</li>
+        <li>Hardware and systems</li>
         <li>Linux</li>
-        <li>CI/CD with GitHub Actions</li>
-        <li>Infrastructure as code (AWS SAM)</li>
-        <li>CompTIA A+</li>
+        <li>Windows</li>
+        <li>macOS</li>
+        <li>Networking</li>
+        <li>VirtualBox</li>
         <li>Python</li>
+        <li>AWS and cloud computing (CloudFront)</li>
+        <li>Raspberry Pi</li>
+      </ul>
+      <h3 class="sub">Professional</h3>
+      <ul class="chips">
+        <li>Troubleshooting</li>
+        <li>Customer service</li>
+        <li>Collaboration</li>
+        <li>Communication</li>
+        <li>Analytical research</li>
+        <li>Report writing</li>
       </ul>
     </section>
 
@@ -82,35 +106,74 @@
       <h2>Projects</h2>
       <div class="grid">
         <article class="card">
-          <h3>This portfolio</h3>
-          <p>Static site on a private S3 bucket behind CloudFront with origin access control, an ACM certificate, and Cloudflare DNS. Deployed automatically on every push.</p>
-          <p class="tags">S3, CloudFront, ACM, GitHub Actions</p>
+          <h3>Salt Typhoon and Volt Typhoon policy research</h3>
+          <ul>
+            <li>Wrote a policy paper (INR 3133) analyzing the Salt Typhoon and Volt Typhoon state-sponsored cyber campaigns.</li>
+            <li>Synthesized open-source threat intelligence and government reporting into structured analysis for a policy audience.</li>
+          </ul>
+          <p class="tags">Academic project, 2026</p>
         </article>
         <article class="card">
-          <h3>Serverless weather feed</h3>
-          <p>A scheduled Lambda fetches a forecast, writes it to S3, and the page above renders it. Defined with AWS SAM and deployed through OIDC with no stored keys.</p>
-          <p class="tags">Lambda, EventBridge, SAM, Python</p>
+          <h3>AWS-hosted portfolio website</h3>
+          <ul>
+            <li>Built and self-hosted this site on AWS, served through an Amazon CloudFront distribution with a private S3 bucket, an ACM certificate, and Cloudflare DNS.</li>
+            <li>Added a scheduled Lambda and EventBridge backend that feeds the live weather section, deployed automatically through GitHub Actions.</li>
+          </ul>
+          <p class="tags">Personal project, 2026</p>
         </article>
         <article class="card">
-          <h3>Home network and lab</h3>
-          <p>Replacing a consumer router setup with UniFi gear and growing a mini home lab for hands-on networking and security practice.</p>
-          <p class="tags">UniFi, networking, home lab</p>
+          <h3>Raspberry Pi travel router</h3>
+          <ul>
+            <li>Designed and built a portable Wi-Fi travel router on a Raspberry Pi, with dual wireless interfaces bridging an untrusted network (WAN client) to a private, secured access point.</li>
+            <li>Set up access point creation, DHCP/DNS, and NAT/packet forwarding with OpenWRT to learn Linux networking fundamentals.</li>
+          </ul>
+          <p class="tags">Personal project, 2026</p>
         </article>
       </div>
     </section>
 
     <section class="section" id="experience">
       <h2>Experience</h2>
+      <div class="jobs">
+        <article class="job">
+          <div class="job-head"><h3>Intelligence Fellow</h3><span class="when">June 2026 to present</span></div>
+          <p class="org">IC-CAE Intelligence Fellowship (ODNI-funded), Florida International University</p>
+          <ul>
+            <li>Selected for the competitive ODNI-funded Intelligence Community Centers for Academic Excellence (IC-CAE) Fellowship, a workforce development program that prepares analytic talent for U.S. Intelligence Community agencies, from a limited cohort.</li>
+            <li>Conduct independent cyber threat intelligence research, producing analytic assessments that link state-sponsored cyber operations to national security implications.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head"><h3>Work-Study Student</h3><span class="when">January 2025 to April 2026</span></div>
+          <p class="org">U.S. Department of Veterans Affairs, Pembroke Pines, FL (part-time)</p>
+          <ul>
+            <li>Delivered timely information services to students and faculty by researching and resolving VA benefit inquiries, reducing wait times and giving accurate guidance on complex eligibility matters.</li>
+            <li>Compiled and organized data into reports using Microsoft Office Suite and Google Docs, improving the accuracy and accessibility of records for staff decision-making.</li>
+            <li>Guided dependents of veterans through available benefit programs with tailored resources, increasing successful access to the entitlements they were eligible for.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head"><h3>Pool Attendant</h3><span class="when">April 2025 to September 2025</span></div>
+          <p class="org">Seminole Hard Rock Hotel &amp; Casino, Hollywood, FL (full-time)</p>
+          <ul>
+            <li>Kept a clean, safe, and organized pool environment for a five-star resort by responding promptly to guest requests during peak-volume operations.</li>
+            <li>Partnered with operations, security, and housekeeping teams to monitor guest safety and manage high-volume crowds, with no safety incidents during peak hours.</li>
+            <li>Managed towel inventory, lounge setup, and preparation for high-profile events, supporting smooth execution of VIP events.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 class="sub">Professional organizations</h3>
       <ul class="rows">
-        <li><strong>IC-CAE Intelligence Fellow</strong><span>Funded through ODNI</span></li>
-        <li><strong>VA work-study</strong><span>Researching veteran scholarships and resources</span></li>
-        <li><strong>AWS Student Builder Group</strong><span>Member, FIU</span></li>
+        <li><strong>AWS Student Builder Group</strong><span>Member, Florida International University. Active in AWS cloud computing fundamentals and hands-on builder activities.</span></li>
       </ul>
     </section>
 
     <section class="section contact" id="contact">
       <h2>Contact</h2>
-      <p>Want to talk about cloud, security, or an internship?</p>
+      <p>Want to talk about cloud, security, or threat intelligence research?</p>
       <p><a class="btn btn-solid" href="mailto:look4kai@gmail.com">Email me</a></p>
     </section>
   </main>
